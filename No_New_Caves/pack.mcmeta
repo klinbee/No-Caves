@@ -1,0 +1,7 @@
+{
+  "pack": {
+    "description": "§7Stops 1.18+ Noise Caves from generating.",
+    "pack_format": 15,
+    "supported_formats": [15, 999]
+  }
+}
