@@ -1,6 +1,17 @@
 {
   "pack": {
-    "description": "§7Stops Pre-1.18 Carver Caves from generating.",
+    "description": [
+      "Removes Pre-1.18 Caves",
+      "\n",
+      {
+        "text": "Made by ",
+        "color": "#AAAAAA"
+      },
+      {
+        "text": "Klinbee",
+        "color": "#ffbbbb"
+      }
+    ],
     "pack_format": 15,
     "supported_formats": [15, 999]
   }

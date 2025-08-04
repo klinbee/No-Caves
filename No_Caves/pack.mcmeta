@@ -1,6 +1,17 @@
 {
   "pack": {
-    "description": "§7Stops All Caves from generating.",
+    "description": [
+      "Removes All Caves",
+      "\n",
+      {
+        "text": "Made by ",
+        "color": "#AAAAAA"
+      },
+      {
+        "text": "Klinbee",
+        "color": "#ffbbbb"
+      }
+    ],
     "pack_format": 15,
     "supported_formats": [15, 999]
   }
