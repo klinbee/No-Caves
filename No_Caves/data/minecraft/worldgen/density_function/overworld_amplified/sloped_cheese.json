@@ -1,4 +1,5 @@
 {
+  "": "Cave logic short-circuit, must not exceed 1.5625",
   "type": "minecraft:clamp",
   "input": {
     "type": "minecraft:add",

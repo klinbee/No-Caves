@@ -1,4 +1,5 @@
 {
+  "": "I've had an instance of a crash with `probability = 0` carvers; `replaceable = air` is an effective workaround.",
   "type": "minecraft:cave",
   "config": {
     "probability": 0.01,
