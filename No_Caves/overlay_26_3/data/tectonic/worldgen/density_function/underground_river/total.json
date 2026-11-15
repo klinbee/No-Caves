@@ -1,0 +1,5 @@
+{
+  "": "Must be >= 0.0002 so min(0.0002, total) == 0.0002",
+  "type": "minecraft:constant",
+  "value": 1.0
+}

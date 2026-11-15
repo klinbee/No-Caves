@@ -1,0 +1,5 @@
+{
+  "": "Must be >= max(sloped_cheese) so min(sloped_cheese, caves) == sloped_cheese",
+  "type": "minecraft:constant",
+  "value": 64.0
+}

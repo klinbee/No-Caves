@@ -1,0 +1,5 @@
+{
+  "": "Must be >= max(squeeze) so min(squeeze, noodle) == squeeze",
+  "type": "minecraft:constant",
+  "value": 64.0
+}

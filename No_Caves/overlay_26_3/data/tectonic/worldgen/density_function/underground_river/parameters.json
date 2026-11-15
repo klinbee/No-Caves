@@ -1,0 +1,5 @@
+{
+  "": "Disables underground river aquifer floodedness",
+  "type": "minecraft:constant",
+  "value": 0
+}

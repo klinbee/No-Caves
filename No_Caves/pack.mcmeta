@@ -16,5 +16,14 @@
     "supported_formats": [15, 999],
     "min_format": 15,
     "max_format": 999
+  },
+  "overlays": {
+    "entries": [
+      {
+        "directory": "overlay_26_3",
+        "min_format": 111,
+        "max_format": 999
+      }
+    ]
   }
 }
