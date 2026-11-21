@@ -20,10 +20,12 @@ WRAPPER = ROOT / "wrapper"
 
 def beet_default(ctx: Context):
 
-    NoNewCaves = DataPack(path=SOURCE / "No_New_Caves", extend_namespace=[WorldgenDensityFunction], extend_extra={"LICENSE": TextFile})
-    NoOldCaves = DataPack(path=SOURCE / "No_Old_Caves", extend_namespace=[WorldgenConfiguredCarver, WorldgenCarver], extend_extra={"LICENSE": TextFile})
+    NoNewCaves = DataPack(path=SOURCE / "no_noise_caves", extend_namespace=[WorldgenDensityFunction], extend_extra={"LICENSE": TextFile})
+    NoNewCaves.name = "No-New-Caves"
+    NoOldCaves = DataPack(path=SOURCE / "no_carver_caves", extend_namespace=[WorldgenConfiguredCarver, WorldgenCarver], extend_extra={"LICENSE": TextFile})
+    NoOldCaves.name = "No-Old-Caves"
 
-    NoCaves = DataPack(name="No_Caves")
+    NoCaves = DataPack(name="No-Caves")
     NoCaves.merge(NoNewCaves)
     NoCaves.merge(NoOldCaves)
     NoCaves.mcmeta.data["pack"]["description"][0] = "Removes All Caves"
@@ -57,8 +59,8 @@ def beet_default(ctx: Context):
                     rel_path = file.relative_to(WRAPPER).as_posix()
                     template = file.read_text(encoding="utf-8")
                     rendered = Template(template).safe_substitute(metadata | {
-                        "id": "mr_" + edition.name.lower().replace(" ", "_").split("-")[0],
-                        "name": edition.name.replace("_", " "),
+                        "id": "mr_" + "_".join(edition.name.lower().split("-")[:-1]),
+                        "name": " ".join(edition.name.split("-")[:-1]),
                         "description": edition.mcmeta.data["pack"]["description"][0], # TODO: Formatting-wise this is very unsafe
                     })
                     modbuild.writestr(rel_path, rendered.encode("utf-8"))
