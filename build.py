@@ -1,6 +1,8 @@
 import shutil
 import zipfile
+import yaml
 from pathlib import Path
+from string import Template
 from beet import Context, DataPack, TextFile
 from beet.contrib.worldgen import WorldgenDensityFunction, WorldgenConfiguredCarver
 
@@ -13,6 +15,7 @@ class WorldgenCarver(WorldgenConfiguredCarver):
 ROOT = Path(__file__).parent
 BUILD = ROOT / "build"
 SOURCE = ROOT / "src"
+WRAPPER = ROOT / "wrapper"
 
 
 def beet_default(ctx: Context):
@@ -31,8 +34,12 @@ def beet_default(ctx: Context):
     BUILD.mkdir(parents=True, exist_ok=True)
 
 
+    with open(ROOT / "meta.yaml") as f:
+        metadata: dict = yaml.load(f, Loader=yaml.SafeLoader)
+
     for edition in (NoCaves, NoNewCaves, NoOldCaves):
 
+        edition.name += f"-{metadata["version"]}" # NOTE: This leads to the mods' names containing the version number
         edition.save(BUILD)
         edition.save(BUILD, zipped=True)
 
@@ -45,4 +52,13 @@ def beet_default(ctx: Context):
             for item in datapackbuild.infolist():
                 modbuild.writestr(item, datapackbuild.read(item.filename))
 
-            ... # TODO
+            for file in WRAPPER.rglob("*"):
+                if file.is_file():
+                    rel_path = file.relative_to(WRAPPER).as_posix()
+                    template = file.read_text(encoding="utf-8")
+                    rendered = Template(template).safe_substitute(metadata | {
+                        "id": "mr_" + edition.name.lower().replace(" ", "_").split("-")[0],
+                        "name": edition.name.replace("_", " "),
+                        "description": edition.mcmeta.data["pack"]["description"][0], # TODO: Formatting-wise this is very unsafe
+                    })
+                    modbuild.writestr(rel_path, rendered.encode("utf-8"))
