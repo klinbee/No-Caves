@@ -1,0 +1,14 @@
+modLoader = 'javafml'
+loaderVersion = '[1,)'
+license = 'MIT'
+showAsResourcePack = false
+
+[[mods]]
+modId = '${id}'
+version = '${version}'
+displayName = '${name}'
+description = '''${description}'''
+logoFile = '${icon}'
+authors = '${author}'
+displayURL = '${homepage}'
+issueTrackerURL = '${issues}'

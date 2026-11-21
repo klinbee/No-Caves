@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "com.modrinth",
+    "id": "${id}",
+    "version": "${version}",
+    "metadata": {
+      "name": "${name}",
+      "description": "${description}",
+      "contributors": {
+        "${author}": "Owner"
+      },
+      "contact": {
+        "homepage": "${homepage}",
+        "sources": "${sources}",
+        "issues": "${issues}"
+      },
+      "icon": "${icon}"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "depends": [
+      {
+        "id": "quilt_resource_loader",
+        "versions": "*",
+        "unless": "fabric-resource-loader-v0"
+      }
+    ]
+  }
+}

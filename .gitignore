@@ -1,1 +1,10 @@
+# Development
+.vscode/
 spyglass.json
+test*
+
+# Build
+build/
+dist/
+.beet_cache/
+__pycache__/
