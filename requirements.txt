@@ -1,2 +1,2 @@
-beet
+beet>=0.122
 pyyaml

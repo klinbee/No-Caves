@@ -4,12 +4,7 @@ import yaml
 from pathlib import Path
 from string import Template
 from beet import Context, DataPack, TextFile
-from beet.contrib.worldgen import WorldgenDensityFunction, WorldgenConfiguredCarver
-
-
-# For some reason Beet does not have the new carvers
-class WorldgenCarver(WorldgenConfiguredCarver):
-    scope = ("worldgen", "carver")
+from beet.contrib.worldgen import WorldgenDensityFunction, WorldgenConfiguredCarver, WorldgenCarver
 
 
 ROOT = Path(__file__).parent
