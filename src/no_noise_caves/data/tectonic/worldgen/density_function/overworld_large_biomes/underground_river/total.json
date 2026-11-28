@@ -1,0 +1,5 @@
+{
+  "": "Must be >= max(squeeze) so min(squeeze, total) == squeeze in Tectonic v2.2.2",
+  "type": "constant",
+  "argument": 64.0
+}

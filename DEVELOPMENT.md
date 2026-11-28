@@ -12,6 +12,6 @@ All datapack and mod artifacts are to be found in `build/`.
 ## 26.3 Support TODO
 - Add Flat Dimensions support for 26.3+
 - Verify Overworldify support for 26.3+
-- Check whether pre-26.3 Tectonic support should be updated
+- ✅ Check whether pre-26.3 Tectonic support should be updated
 - ✅ Verify that overlays work in mod versions
 - ✅ Verify Tectonic support

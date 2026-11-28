@@ -1,0 +1,5 @@
+{
+  "": "Must be > 0 so squeeze(0.64 * caves) > 0 results in solid rock underground in Tectonic v2.2.2",
+  "type": "constant",
+  "argument": 0.25
+}
