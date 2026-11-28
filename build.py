@@ -36,7 +36,7 @@ def beet_default(ctx: Context):
 
     for edition in (NoCaves, NoNewCaves, NoOldCaves):
 
-        edition.name += f"-{metadata["version"]}" # NOTE: This leads to the mods' names containing the version number
+        edition.name += f"-{metadata["version"]}"
         edition.save(BUILD)
         edition.save(BUILD, zipped=True)
 
@@ -54,7 +54,7 @@ def beet_default(ctx: Context):
                     rel_path = file.relative_to(WRAPPER).as_posix()
                     template = file.read_text(encoding="utf-8")
                     rendered = Template(template).safe_substitute(metadata | {
-                        "id": "mr_" + "_".join(edition.name.lower().split("-")[:-1]),
+                        "id": "_".join(edition.name.lower().split("-")[:-1]),
                         "name": " ".join(edition.name.split("-")[:-1]),
                         "description": edition.mcmeta.data["pack"]["description"][0], # TODO: Formatting-wise this is very unsafe
                     })
